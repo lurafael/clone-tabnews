@@ -1,40 +1,85 @@
-function Home() {
+import { useState } from "react";
+
+export default function Home() {
+  const [hover, setHover] = useState(false);
+
+  const btnStyle = {
+    marginTop: "30px",
+    padding: "10px 20px",
+    backgroundColor: hover ? "#ffcc00" : "transparent",
+    border: "2px solid #ffcc00",
+    color: hover ? "#1a1a1a" : "#ffcc00",
+    fontWeight: "bold",
+    borderRadius: "6px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+  };
+
   return (
-    <div style={{ padding: "0 15px" }}>
-      <h2>Olá, bom dia minha princesa!</h2>
-      <p>
-        Obrigado por tudo o que vc faz por mim, sou grato demais por ter você na
-        minha vida!
-        <br />
-        Espero que tenha acordado bem e tenha um bom dia no trabalho 🥰
-        <br />
-        <br />
-        <br />
-        <i>
-          Obs: Espero que a semana passe rápido para a gente ficar juntos
-          novamente e eu te tratar como no vídeo abaixo
-        </i>{" "}
-        ❤️ <i>(não sou o velho calvo)</i>
-      </p>
-      <div>
-        <blockquote class="twitter-tweet">
-          <p lang="pt" dir="ltr">
-            homem das cavernas puxando mulher pelo cabelo pica pau
-            <a href="https://t.co/wqqIFYeHKM">pic.twitter.com/wqqIFYeHKM</a>
-          </p>
-          &mdash; acervo archive memes (@breakupwithdoja)
-          <a href="https://twitter.com/breakupwithdoja/status/1402785188304896001?ref_src=twsrc%5Etfw">
-            June 10, 2021
-          </a>
-        </blockquote>
-        <script
-          async
-          src="https://platform.twitter.com/widgets.js"
-          charset="utf-8"
-        ></script>
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#0f0f0f",
+        color: "#f1f1f1",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        padding: "20px",
+        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: "#1a1a1a",
+          border: "1px solid #333",
+          borderRadius: "12px",
+          padding: "40px 30px",
+          maxWidth: "500px",
+          textAlign: "center",
+          boxShadow: "0 0 20px rgba(255, 204, 0, 0.2)",
+        }}
+      >
+        <div style={{ fontSize: "3rem", marginBottom: "20px" }}>🚧</div>
+        <h1
+          style={{
+            fontSize: "2rem",
+            color: "#ffcc00",
+            marginBottom: "15px",
+          }}
+        >
+          Página em construção
+        </h1>
+        <p
+          style={{
+            fontSize: "1rem",
+            color: "#ccc",
+            lineHeight: "1.6",
+          }}
+        >
+          Estamos construindo algo incrível para você!<br />
+          Enquanto isso, aproveite um café ☕ e relaxe.<br />
+          A tecnologia está trabalhando nos bastidores 🚀
+        </p>
+        <button
+          style={btnStyle}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          onClick={() => alert("Você já está na home!")}
+        >
+          Voltar para o início
+        </button>
+      </div>
+
+      <div
+        style={{
+          marginTop: "30px",
+          fontSize: "0.9rem",
+          color: "#777",
+        }}
+      >
+        Tech Corp © 2025 • Feito com café e código ☕
       </div>
     </div>
   );
 }
-
-export default Home;
