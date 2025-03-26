@@ -1,7 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [hover, setHover] = useState(false);
+
+  useEffect(() => {
+    // Remove scroll indesejado no body/html
+    document.documentElement.style.margin = "0";
+    document.documentElement.style.padding = "0";
+    document.body.style.margin = "0";
+    document.body.style.padding = "0";
+    document.body.style.overflow = "hidden";
+  }, []);
 
   const btnStyle = {
     marginTop: "30px",
@@ -18,15 +27,16 @@ export default function Home() {
   return (
     <div
       style={{
-        minHeight: "100vh",
+        height: "100vh",
         backgroundColor: "#0f0f0f",
         color: "#f1f1f1",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        padding: "20px",
+        padding: "0",
         fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        overflow: "hidden",
       }}
     >
       <div
@@ -34,13 +44,13 @@ export default function Home() {
           backgroundColor: "#1a1a1a",
           border: "1px solid #333",
           borderRadius: "12px",
-          padding: "40px 30px",
+          padding: "60px",
           maxWidth: "500px",
           textAlign: "center",
-          boxShadow: "0 0 20px rgba(255, 204, 0, 0.2)",
+          boxShadow: "0 0 25px rgba(255, 204, 0, 0.25)",
         }}
       >
-        <div style={{ fontSize: "3rem", marginBottom: "20px" }}>🚧</div>
+        <div style={{ fontSize: "5rem", marginBottom: "20px" }}>🚧</div>
         <h1
           style={{
             fontSize: "2rem",
@@ -57,18 +67,10 @@ export default function Home() {
             lineHeight: "1.6",
           }}
         >
-          Estamos construindo algo incrível para você!<br />
-          Enquanto isso, aproveite um café ☕ e relaxe.<br />
+          Estamos construindo algo incrível para você!
+          <br />
           A tecnologia está trabalhando nos bastidores 🚀
         </p>
-        <button
-          style={btnStyle}
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
-          onClick={() => alert("Você já está na home!")}
-        >
-          Voltar para o início
-        </button>
       </div>
 
       <div
@@ -78,7 +80,7 @@ export default function Home() {
           color: "#777",
         }}
       >
-        Tech Corp © 2025 • Feito com café e código ☕
+        Techleaf 2024 © Todos os direitos reservados
       </div>
     </div>
   );
